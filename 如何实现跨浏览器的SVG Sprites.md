@@ -22,27 +22,27 @@ From the screenshot above you can see that I’m using icons (for Twitter, Dribb
 
 We’re going to begin by using the PNG versions of these icons, for the sake of backward compatibility, then we’ll prepare the SVG versions to use in supporting browsers.
 
-我们会在支持SVG的浏览器中使用SVG的格式，然后使用PNG格式的图标来实现向后兼容。
+我们会在支持SVG的浏览器中使用SVG的格式，然后在不支持svg的浏览器中使用PNG格式的图标。
 
 I used Sketch to output my PNG icons, so I’m going to use it again to prepare my icons for SVG usage.
 
-我使用[Sketch](http://bohemiancoding.com/)来输出我的PNG图标，另外我还会再使用它来输出SVG格式的图标。
+通常我使用[Sketch](http://bohemiancoding.com/)来输出我的PNG图标和SVG图标。
 
 ![](sketch-screenshot.png)
 
 If you look at the screenshot above you’ll notice that I’ve named all my groups and shapes in the left hand panel appropriately (Adobe Illustrator has a similar view in the Layers panel). It’s important to name all your assets correctly, not only to help you remain organised but also for what we’ll be using them for later in this tutorial. 
 
-在上面的截图中你会注意到我将分组和图形都在左侧面板进行了适当的命名。（Adobe Illustrator在图层面板中有个相似的视图）。将资源正确地命名是很重要的，不仅仅让它们保持组织性更加为了我们后面的使用。
+在上面的截图中你会注意到我将分组和图形都在左侧面板进行了适当的命名。（Adobe Illustrator在图层面板中有个相似的视图）。将资源正确地命名是很重要的，这不仅仅让它们保持组织性，更是对后面的图标使用有很大帮助。
 
 ### 输出SVG ###
 
 Now I’ll export the icons as SVGs, which is straightforward with the slicing tool in Sketch. For more information on how this works take a look at Understanding Sketch’s Export Options. I’ll be exporting them as separate files and placing them into the images directory of my project.
 
-现在我会将这些图标输出为SVG，我们可以用Sketch的裁剪工具来轻松地完成这项工作。在[Sketch的输出选项](http://webdesign.tutsplus.com/tutorials/understanding-sketchs-export-options--cms-22207)中你可以得到更多的信息从而明白它是怎么实现的。我会将它们输出为单独的文件并放置在我项目中的images目录中。
+现在我会将这些图标输出为SVG格式，我们可以用Sketch的裁剪工具来轻松地完成这项工作。在[Sketch的输出配置选项](http://webdesign.tutsplus.com/tutorials/understanding-sketchs-export-options--cms-22207)中你可以得到更多的信息从而明白它是如何工作的。我会将它们输出为单独的文件并放置在我项目中的images目录中。
 
 Normally, to show an image on your site you’d reference the asset with a src attributed element or something similar: 
 
-通常地，你要在网站中展示一张图片你需要通过一个元素的src属性中来引入，类似下面这样：
+通常地，你要在网站中展示一张图片你需要通过一个元素的src属性中来指向这个资源，类似下面这样：
 
     <img src="path-to-my-image.png" alt="" />
 
@@ -65,7 +65,7 @@ However with SVGs there are a number of different ways we can use them within an
 
 This is one of the icons I exported, in XML format. This code is pretty much just like HTML (it’s a structural format) which means we can slot this straight into the page. 
 
-这是我上面输出的其中一个图标，基于XML的格式的呈现。这些代码几乎就像一段HTML一样，这意味着我们可以插入这段代码到页面中。
+这是我上面输出的其中一个图标，是基于XML的格式的呈现。这些代码几乎就像一段HTML一样，这意味着我们可以插入这段代码到页面中。
 
 ### 在HTML中添加inline SVG ###
 
@@ -120,7 +120,7 @@ I’ve placed the SVG right above the corresponding PNG icon within the HTML pag
 
 I’m also going to clean up the code within my SVG. Removing the element attributes is optional as most of the pieces I’m removing won’t change how the SVG will act. Here is a before and after if you wish to do the same with yours:
 
-接着我准备清理一下上面的SVG代码。移除掉那些可选的元素属性因为我要移除的这些属性并不会影响SVG的表现。下面是优化后跟优化前的代码对比，但他们表现效果是一样的：
+接着我准备清理一下上面的SVG代码。移除掉那些可选的元素属性，因为我要移除的这些属性并不会影响SVG的表现。下面是优化后跟优化前的代码对比，但他们表现效果是一样的：
 
 	<svg width="50px" height="41px" viewBox="0 0 50 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
 	    <!-- Generator: Sketch 3.1 (8751) - http://www.bohemiancoding.com/sketch -->
@@ -144,7 +144,7 @@ I’m also going to clean up the code within my SVG. Removing the element attrib
 
 Take note of the elements I’ve removed. The `<title>`, `<desc>`, and `<defs>` elements aren’t needed now, but we may need them later on in this tutorial. There are also a few <g> elements which refer to groups, and correspond to the groups created in my Sketch document. By default Sketch places everything inside a page, hence the group element <g id=”Page-1”… . You can remove this as it doesn’t have a use for us (the group within it is more important). Sketch does provide an option to produce cleaner SVGs upon exporting, however there is no harm in cleaning the code up yourself.
 
-注意我移除的那些元素。 `<title>`, `<desc>`, 和 `<defs>`元素目前是不需要的，但在本文后面我们可能会用到它们。其中代表着分组的`<g>`元素相当于我在Sketch文档中的分组。默认地Sketch是将所有的东西放在一个页面中的，相当于组元素`<g id=”Page-1”…`。你可以把这个元素移除掉因为它对我们来说没有什么作用（在它里面的组元素才是重要的）。Sketch提供了一个选项让我们在输出之前处理SVG的清理工作，但你自己来清理一遍也没多大问题。
+注意我移除的那些元素。 `<title>`, `<desc>`, 和 `<defs>`元素目前是不需要的，但在本文后面我们可能会用到它们。其中代表着分组的`<g>`元素相当于我在Sketch文档中的分组。默认地Sketch是将所有的东西放在一个页面中的，相当于组元素`<g id=”Page-1”…`。你可以把这个元素移除掉因为它对我们来说没有什么作用（在它里面的组元素才是重要的）。Sketch提供了一个选项让我们在输出之前处理SVG的清理工作，但你手动来清理一遍也没多大问题。
 
 The final part of this step is to remove the height and width attributes within the SVG element itself. These will need to be compensated for in my CSS file, as shown below:
 
@@ -224,11 +224,11 @@ If you’ve followed this process and structured your HTML like mine then your g
 
 SVG sprites act pretty much just like image sprites. In their simplest form sprites are a collection of graphical elements combined into one image. Each image is then picked out using CSS and HTML, normally by specifying coordinates and a viewing “window”. 
 
-svg sprites几乎跟image sprites一样。就最简单的形式来说，sprites是将几张图合并到一起的一张图片。每一张图都可以通过css和html来获取，一般通过一个指定的坐标和一个观察“窗口”来确定每张图片的位置。
+svg sprites几乎跟image sprites一样。就最简单的形式来说，sprites是将几张图合并到一起的一张图片。每一张图都可以通过css和html来获取，一般通过sprite在一个展现“窗口”的指定的坐标来取到其中的某张图片（超出窗口部分的被截取隐藏掉）。
 
 The two main benefits to this are an improved page load time, better workflow, and consistency between the graphical elements on the page. The second and third points apply very well to SVG sprites. Instead of several blocks of SVG code littered throughout our page, we would only have one place to update our SVGs.
 
-它最主要的优点就是能减少页面的加载时间，更好的开发流程，以及页面中图片元素的一致性。其中第二和第三点可以很好地应用在svg sprites中。因为我们可以紧紧在一处地方更新我们的svg而不是让svg的代码块散落在文档的各个地方。
+它最主要的优点就是能减少页面的加载时间，优化开发流程，以及保持页面中图片元素的一致性。其中第二和第三点可以很好地应用在svg sprites中。因为我们可以紧紧在一处地方更新我们的svg而不是让svg的代码块散落在文档的各个地方。
 
 To start with I will make a new `<svg>` element within the `<head>` element of my page, just before the closing tag. This new SVG will hold all the icons I previously had within the page.
 
@@ -353,7 +353,7 @@ If you’ve followed the steps correctly you won’t see any change to how your 
 
 One plus point to using SVG sprites is that your visible page code is much cleaner and can be read more easily by other people working with your code. We can improve on this even more. 
 
-一个使用svg sprites的优点是你页面上的代码变地更加地简洁并且对于你的合作伙伴来说它的可读性也更加强了。但我们还可以进一步地优化。
+一个使用svg sprites的优点是你页面上的代码变地更加地简洁并且对于你的项目伙伴来说它的可读性也更加强了。但我们还可以进一步地优化。
 
 Below I’ve changed the `<g>` elements in my SVG sprite to the symbol element, plus I’ve moved the viewbox attribute from the SVG elements in the page to the new symbol elements.
 
