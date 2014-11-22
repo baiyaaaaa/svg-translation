@@ -12,7 +12,7 @@ For the purpose of this tutorial I’m going to be using a single page, which wi
 
 基于本文的目的，我会以一个像个人名片的东西来开始。它会简短地介绍一下我自己以及显示3个和我工作相关的网络档案。
 
-![](dave.png)
+![](img/dave.png)
 
 From the screenshot above you can see that I’m using icons (for Twitter, Dribbble and GitHub) to symbolically reference my network profiles. I downloaded these icons from flaticon, which has a wide range of icons & symbols in both vector and raster formats. 
 
@@ -28,7 +28,7 @@ I used Sketch to output my PNG icons, so I’m going to use it again to prepare 
 
 通常我使用[Sketch](http://bohemiancoding.com/)来输出我的PNG图标和SVG图标。
 
-![](sketch-screenshot.png)
+![](img/sketch-screenshot.png)
 
 If you look at the screenshot above you’ll notice that I’ve named all my groups and shapes in the left hand panel appropriately (Adobe Illustrator has a similar view in the Layers panel). It’s important to name all your assets correctly, not only to help you remain organised but also for what we’ll be using them for later in this tutorial. 
 
@@ -38,7 +38,7 @@ If you look at the screenshot above you’ll notice that I’ve named all my gro
 
 Now I’ll export the icons as SVGs, which is straightforward with the slicing tool in Sketch. For more information on how this works take a look at Understanding Sketch’s Export Options. I’ll be exporting them as separate files and placing them into the images directory of my project.
 
-现在我会将这些图标输出为SVG格式，我们可以用Sketch的裁剪工具来轻松地完成这项工作。在[Sketch的输出配置选项](http://webdesign.tutsplus.com/tutorials/understanding-sketchs-export-options--cms-22207)中你可以得到更多的信息从而明白它是如何工作的。我会将它们输出为单独的文件并放置在我项目中的images目录中。
+现在我会将这些图标输出为SVG格式，我们可以用Sketch的slicing工具来轻松地完成这项工作。在[Sketch的输出配置选项](http://webdesign.tutsplus.com/tutorials/understanding-sketchs-export-options--cms-22207)中你可以得到更多的信息从而明白它是如何工作的。我会将它们输出为单独的文件并放置在我项目中的images目录中。
 
 Normally, to show an image on your site you’d reference the asset with a src attributed element or something similar: 
 
@@ -218,7 +218,7 @@ Next, I’m going to wrap the `<img>` in an SVG-specific element called `foreign
 	
 If you’ve followed this process and structured your HTML like mine then your graphic should fallback to your original raster image if the browser doesn’t support SVG.
 
-如果你跟着我的步伐到这里并写下我上面这段html，你会发现如果你的浏览器不支持svg它就会使用png图片来显示。
+如果你跟着我的步伐到这里并写下我上面这段html，你会发现如果你的浏览器不支持svg它就会使用png图片来显示。（但我测试下来，这种方式会导致加载png图片，用注释的方式则不会，所以这并不是一种可取的方案）
 
 ## 创建一个 SVG Sprite
 
